@@ -4,5 +4,5 @@ part of 'auth_bloc.dart';
 class AuthState with _$AuthState {
   const AuthState._();
 
-  const factory AuthState.init() = InitAuthState;
+  const factory AuthState.init(String email, String name) = InitAuthState;
 }

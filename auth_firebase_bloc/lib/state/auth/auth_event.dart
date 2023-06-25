@@ -4,7 +4,7 @@ part of 'auth_bloc.dart';
 class AuthEvent with _$AuthEvent {
   const AuthEvent._();
 
-  const factory AuthEvent.init() = InitAuthEvent;
+  const factory AuthEvent.login() = LoginAuthEvent;
 
   const factory AuthEvent.logout() = LogoutAuthEvent;
 }

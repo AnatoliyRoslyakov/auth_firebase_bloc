@@ -12,9 +12,9 @@ class AuthService {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasData) {
-            return HomePage();
+            return const HomePage();
           } else {
-            return LoginPage();
+            return const LoginPage();
           }
         });
   }
@@ -34,7 +34,8 @@ class AuthService {
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
-
+    // ignore: avoid_print
+    print(credential.idToken);
     // После входа в систему возвращает учетные данные пользователя
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }

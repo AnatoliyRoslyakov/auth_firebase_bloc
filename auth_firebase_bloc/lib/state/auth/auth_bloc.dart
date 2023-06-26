@@ -13,7 +13,8 @@ part 'auth_state.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Repository repository = Repository();
   AuthBloc({required this.repository})
-      : super(InitAuthState(PersonModel(name: 'name', email: 'email'))) {
+      : super(InitAuthState(
+            PersonModel(name: 'name', email: 'email', photoUrl: ''))) {
     on<LoginAuthEvent>(_login);
     on<LogoutAuthEvent>(_logout);
   }

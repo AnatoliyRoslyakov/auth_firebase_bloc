@@ -13,8 +13,25 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(state.model.name),
+              CircleAvatar(
+                radius: 50.0,
+                backgroundImage: NetworkImage(state.model.photoUrl),
+                backgroundColor: Colors.transparent,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                state.model.name,
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               Text(state.model.email),
+              const SizedBox(
+                height: 10,
+              ),
               ElevatedButton(
                 child: const Text('Logout'),
                 onPressed: () {

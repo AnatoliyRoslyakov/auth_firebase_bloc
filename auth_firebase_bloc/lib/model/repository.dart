@@ -5,6 +5,7 @@ class Repository {
   PersonModel repsonInfo() {
     String name = FirebaseAuth.instance.currentUser!.displayName ?? '';
     String email = FirebaseAuth.instance.currentUser!.email ?? '';
-    return PersonModel(name: name, email: email);
+    String photoUrl = FirebaseAuth.instance.currentUser!.photoURL ?? '';
+    return PersonModel(name: name, email: email, photoUrl: photoUrl);
   }
 }

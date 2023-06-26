@@ -281,21 +281,20 @@ abstract class LogoutAuthEvent extends AuthEvent {
 
 /// @nodoc
 mixin _$AuthState {
-  String get email => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  PersonModel get model => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String name) init,
+    required TResult Function(PersonModel model) init,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String name)? init,
+    TResult? Function(PersonModel model)? init,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String name)? init,
+    TResult Function(PersonModel model)? init,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -326,7 +325,7 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({String email, String name});
+  $Res call({PersonModel model});
 }
 
 /// @nodoc
@@ -342,18 +341,13 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? name = null,
+    Object? model = null,
   }) {
     return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
+      model: null == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as PersonModel,
     ) as $Val);
   }
 }
@@ -366,7 +360,7 @@ abstract class _$$InitAuthStateCopyWith<$Res>
       __$$InitAuthStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String email, String name});
+  $Res call({PersonModel model});
 }
 
 /// @nodoc
@@ -380,18 +374,13 @@ class __$$InitAuthStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? name = null,
+    Object? model = null,
   }) {
     return _then(_$InitAuthState(
-      null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as PersonModel,
     ));
   }
 }
@@ -399,16 +388,14 @@ class __$$InitAuthStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitAuthState extends InitAuthState {
-  const _$InitAuthState(this.email, this.name) : super._();
+  const _$InitAuthState(this.model) : super._();
 
   @override
-  final String email;
-  @override
-  final String name;
+  final PersonModel model;
 
   @override
   String toString() {
-    return 'AuthState.init(email: $email, name: $name)';
+    return 'AuthState.init(model: $model)';
   }
 
   @override
@@ -416,12 +403,11 @@ class _$InitAuthState extends InitAuthState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitAuthState &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.model, model) || other.model == model));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, name);
+  int get hashCode => Object.hash(runtimeType, model);
 
   @JsonKey(ignore: true)
   @override
@@ -432,27 +418,27 @@ class _$InitAuthState extends InitAuthState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String name) init,
+    required TResult Function(PersonModel model) init,
   }) {
-    return init(email, name);
+    return init(model);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String name)? init,
+    TResult? Function(PersonModel model)? init,
   }) {
-    return init?.call(email, name);
+    return init?.call(model);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String name)? init,
+    TResult Function(PersonModel model)? init,
     required TResult orElse(),
   }) {
     if (init != null) {
-      return init(email, name);
+      return init(model);
     }
     return orElse();
   }
@@ -487,14 +473,11 @@ class _$InitAuthState extends InitAuthState {
 }
 
 abstract class InitAuthState extends AuthState {
-  const factory InitAuthState(final String email, final String name) =
-      _$InitAuthState;
+  const factory InitAuthState(final PersonModel model) = _$InitAuthState;
   const InitAuthState._() : super._();
 
   @override
-  String get email;
-  @override
-  String get name;
+  PersonModel get model;
   @override
   @JsonKey(ignore: true)
   _$$InitAuthStateCopyWith<_$InitAuthState> get copyWith =>

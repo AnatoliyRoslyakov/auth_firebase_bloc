@@ -18,8 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AuthBloc>(
-      create: (context) =>
-          AuthBloc(repository: repository)..add(const AuthEvent.login()),
+      create: (context) => AuthBloc(repository: repository),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: AuthService().handleAuthState(),

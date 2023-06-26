@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -19,15 +20,14 @@ class AuthService {
         });
   }
 
+  final GoogleSignIn googleUser = GoogleSignIn(scopes: <String>["email"]);
 //Sign in
   signInWithGoogle() async {
     // Запуск  аутентификации
-    final GoogleSignInAccount? googleUser =
-        await GoogleSignIn(scopes: <String>["email"]).signIn();
-
+    final GoogleSignInAccount? googleUserIn = await googleUser.signIn();
     // Получение данные авторизации из запроса
     final GoogleSignInAuthentication googleAuth =
-        await googleUser!.authentication;
+        await googleUserIn!.authentication;
 
     // Создание новых учетных данных
     final credential = GoogleAuthProvider.credential(
@@ -41,7 +41,8 @@ class AuthService {
   }
 
 //Sign out
-  signOut() {
-    FirebaseAuth.instance.signOut();
+  signOut() async {
+    await googleUser.signOut();
+    await FirebaseAuth.instance.signOut();
   }
 }
